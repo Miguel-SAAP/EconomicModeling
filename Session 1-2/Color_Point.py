@@ -1,29 +1,25 @@
-from point import Point # point is the file, Point is the class
+from point import Point
 import random
+
 
 class ColorPoint(Point):
     def __init__(self, x, y, color):
-        """
-        Defines a color point x, y, color
-        """
         self.x = x
         self.y = y
         self.color = color
 
     def __str__(self):
-        return f"<{self.x},{self.y}>({self.color})"
+        return f"<{self.x}, {self.y}>, ({self.color})"
 
-if __name__ == "__main__": #to make sur this code dont run when important thing
+
+if __name__ == "__main__":
     color_points = []
-    colors = ["red", "blue", "green", "yellow", "black", "white", "purple"]
-    for _ in range(5):
-        p = ColorPoint(
-            random.randint(-100, 100),
-            random.randint(-100, 100),
-            random.choice(colors))
+    colors = ["red", "blue", "green", "yellow", "purple"]
+    for i in range(5):
+        p = ColorPoint(random.randint(-100, 100), random.randint(-100, 100), random.choice(colors))
         color_points.append(p)
-    print("random color points:")
+    print("random color points: ")
     print(color_points)
     color_points.sort()
-    print("color points in order:")
+    print("color points sorted by distance: ")
     print(color_points)
